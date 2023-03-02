@@ -6,7 +6,7 @@
             <div class="plan-options">
                 <input type="radio" id="arcade" name="group-plan" value="arcade" [(ngModel)]="plan" checked>
                 <label class="plan-item {{period ? 'yearly' : ''}}" for="arcade">
-                    <img src="../../../assets/images/icon-arcade.svg" alt="Icon Arcade">
+                    <img src="/assets/images/icon-arcade.svg" alt="Icon Arcade">
                     <div>
                         <p>Arcade</p>
                         <p>{{period ? yearlyPrices[0] : monthlyPrices[0]}}</p>
@@ -15,7 +15,7 @@
                 </label>
                 <input type="radio" id="advanced" name="group-plan" value="advanced" [(ngModel)]="plan">
                 <label class="plan-item {{period ? 'yearly' : ''}}" for="advanced">
-                    <img src="../../../assets/images/icon-advanced.svg" alt="Icon Advanced">
+                    <img src="./assets/images/icon-advanced.svg" alt="Icon Advanced">
                     <div>
                         <p>Advanced</p>
                         <p>{{period ? yearlyPrices[1] : monthlyPrices[1]}}</p>
@@ -24,7 +24,7 @@
                 </label>
                 <input type="radio" id="pro" name="group-plan" value="pro" [(ngModel)]="plan">
                 <label class="plan-item {{period ? 'yearly' : ''}}" for="pro">
-                    <img src="../../../assets/images/icon-pro.svg" alt="Icon Pro">
+                    <img src="/../../../assets/images/icon-pro.svg" alt="Icon Pro">
                     <div>
                         <p>Pro</p>
                         <p>{{period ? yearlyPrices[2] : monthlyPrices[2]}}</p>
