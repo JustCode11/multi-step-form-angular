@@ -1,0 +1,37 @@
+@use '../../../styles/' as s;
+
+.container {
+    display: flex;
+    align-items: center;
+
+    .inputContainer {
+        @include s.mobile-form-container;
+        text-align: center;
+        padding: s.rem(80) s.rem(25);
+
+        @include s.breakpoint-up(desktop) {
+            padding: 0;
+            //margin-top: s.rem(30);
+        }
+
+        img {
+            margin: 0 auto;
+            width: s.rem(56);
+            height: s.rem(56);
+
+            @include s.breakpoint-up(desktop) {
+                width: s.rem(80);
+                height: s.rem(80);
+            }
+        }
+
+        h1 {
+            margin-top: s.rem(25);
+            margin-bottom: s.rem(10);
+
+            @include s.breakpoint-up(desktop) {
+                margin-top: s.rem(20);
+            }
+        }
+    }
+}

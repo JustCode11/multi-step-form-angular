@@ -1,0 +1,48 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #selectPlanForm="ngForm">
+        <div class="inputContainer">
+            <h1>Select your plan</h1>
+            <p>You have the option of monthly or yearly billing.</p>
+            <div class="plan-options">
+                <input type="radio" id="arcade" name="group-plan" value="arcade" [(ngModel)]="plan" checked>
+                <label class="plan-item {{period ? 'yearly' : ''}}" for="arcade">
+                    <img src="../../../assets/images/icon-arcade.svg" alt="Icon Arcade">
+                    <div>
+                        <p>Arcade</p>
+                        <p>{{period ? yearlyPrices[0] : monthlyPrices[0]}}</p>
+                        <p>{{period ? "2 months free" : ""}}</p>
+                    </div>
+                </label>
+                <input type="radio" id="advanced" name="group-plan" value="advanced" [(ngModel)]="plan">
+                <label class="plan-item {{period ? 'yearly' : ''}}" for="advanced">
+                    <img src="../../../assets/images/icon-advanced.svg" alt="Icon Advanced">
+                    <div>
+                        <p>Advanced</p>
+                        <p>{{period ? yearlyPrices[1] : monthlyPrices[1]}}</p>
+                        <p>{{period ? "2 months free" : ""}}</p>
+                    </div>
+                </label>
+                <input type="radio" id="pro" name="group-plan" value="pro" [(ngModel)]="plan">
+                <label class="plan-item {{period ? 'yearly' : ''}}" for="pro">
+                    <img src="../../../assets/images/icon-pro.svg" alt="Icon Pro">
+                    <div>
+                        <p>Pro</p>
+                        <p>{{period ? yearlyPrices[2] : monthlyPrices[2]}}</p>
+                        <p>{{period ? "2 months free" : ""}}</p>
+                    </div>
+                </label>
+            </div>
+            <div class="controller-container">
+                <div class="{{!period ? 'selected' : ''}}">Monthly</div>
+                <button type="button" (click)="onChangePeriod()" class="toggler {{period ? 'right' : 'left'}}"
+                    [ngClass]="toggleAnimation === 1 ? 'togglePositionRight' : toggleAnimation === 2 ? 'togglePositionLeft' : ''">
+                </button>
+                <div class="{{period ? 'selected' : ''}}">Yearly</div>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <a (click)="goBack()">Go Back</a>
+            <button type="submit">Next Step</button>
+        </div>
+    </form>
+</div>

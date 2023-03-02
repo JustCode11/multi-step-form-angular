@@ -1,0 +1,91 @@
+@use '../../../styles/' as s;
+
+section {
+    background-image: url('../../../assets/images/bg-sidebar-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: s.rem(172);
+
+    @include s.breakpoint-up(desktop) {
+        height: 100%;
+        width: s.rem(275);
+        background-image: url('../../../assets/images/bg-sidebar-desktop.svg');
+    }
+
+    .stepContainer {
+        display: flex;
+        justify-content: center;
+        padding-top: s.rem(32);
+
+        @include s.breakpoint-up(desktop) {
+            flex-direction: column;
+            margin-left: s.rem(32);
+        }
+
+        .step {
+
+            @include s.breakpoint-up(desktop) {
+                display: flex;
+                align-items: center;
+                width: s.rem(160);
+            }
+
+            &:not(:last-child) {
+                @include s.breakpoint-down(desktop) {
+                    margin-right: s.rem(15);
+                }
+
+                @include s.breakpoint-up(desktop) {
+                    margin-bottom: s.rem(26);
+                }
+            }
+
+            &__number {
+                width: s.rem(34);
+                height: s.rem(34);
+                border-radius: 50%;
+                color: s.$white;
+                border: s.rem(1) solid s.$white;
+                font-weight: 500;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &.selected {
+                    color: s.$marineBlue;
+                    background: s.$lightBlue;
+                    border: s.rem(1) solid s.$lightBlue;
+                }
+
+                @include s.breakpoint-up(desktop) {
+                    margin-right: s.rem(15);
+                }
+            }
+
+            &__text {
+                display: none;
+
+
+                @include s.breakpoint-up(desktop) {
+                    display: block;
+                    line-height: s.rem(20);
+                }
+
+                p {
+                    text-transform: uppercase;
+
+                    &:first-child {
+                        font-size: s.rem(14);
+                    }
+
+                    &:last-child {
+                        color: s.$white;
+                        letter-spacing: s.rem(1);
+                        font-weight: 700;
+                        font-size: s.rem(14);
+                    }
+                }
+            }
+        }
+    }
+}

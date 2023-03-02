@@ -1,0 +1,45 @@
+@use '../utils/' as u;
+@use './colors' as c;
+
+.container {
+    height: 100%;
+}
+
+form {
+    height: 100%;
+
+    @include u.breakpoint-up(desktop) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.inputContainer {
+    @include u.mobile-form-container;
+
+    h1 {
+        margin-bottom: u.rem(15);
+
+        @include u.breakpoint-up(desktop) {
+            margin-bottom: u.rem(5);
+        }
+    }
+
+    p {
+        margin-bottom: u.rem(22);
+
+        @include u.breakpoint-up(desktop) {
+            margin-bottom: u.rem(40);
+        }
+    }
+}
+
+.buttonContainer {
+    background-color: c.$white;
+    padding: u.rem(15);
+
+    @include u.breakpoint-up(desktop) {
+        margin-top: auto;
+        padding: u.rem(15) 0;
+    }
+}

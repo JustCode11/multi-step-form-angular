@@ -1,0 +1,79 @@
+@use '../../../styles/' as s;
+
+.container {
+
+    form {
+        .inputContainer {
+
+            .form-group {
+                display: flex;
+                flex-direction: column;
+
+                &:not(:last-child) {
+                    margin-bottom: s.rem(15);
+
+                    @include s.breakpoint-up(desktop) {
+                        margin-bottom: s.rem(25);
+                    }
+                }
+
+                .label-container {
+                    display: flex;
+                    justify-content: space-between;
+
+                    label {
+                        color: s.$marineBlue;
+                        font-size: s.rem(12);
+
+                        @include s.breakpoint-up(desktop) {
+                            font-size: s.rem(14);
+                            font-weight: 500;
+                            margin-bottom: s.rem(5);
+                        }
+                    }
+
+                    .error-message {
+                        font-size: s.rem(12);
+                        color: s.$strawberryRed;
+
+                        @include s.breakpoint-up(desktop) {
+                            font-size: s.rem(14);
+                        }
+                    }
+                }
+
+                input {
+                    padding: s.rem(0) s.rem(15);
+                    border: s.rem(1) solid s.$lightGray;
+                    border-radius: s.rem(5);
+                    font-weight: 700;
+                    color: s.$marineBlue;
+                    height: s.rem(38);
+                    font-size: s.rem(14);
+
+                    &::placeholder {
+                        font-weight: 500;
+                    }
+
+                    &:focus {
+                        border: s.rem(1) solid s.$darkPurple;
+                    }
+
+                    @include s.breakpoint-up(desktop) {
+                        height: s.rem(48);
+                        font-size: s.rem(16);
+                        border-radius: s.rem(10);
+                    }
+                }
+            }
+        }
+
+        .buttonContainer {
+            overflow: auto;
+
+            button {
+                float: right;
+            }
+        }
+    }
+}

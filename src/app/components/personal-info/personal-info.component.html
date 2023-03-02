@@ -1,0 +1,35 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #personalInfoForm="ngForm">
+        <div class="inputContainer">
+            <h1>Personal info</h1>
+            <p>Please provide your name, email address, and phone number.</p>
+            <div class="form-group">
+                <div class="label-container">
+                    <label for="name">Name</label>
+                    <span [hidden]="name.valid || name.pristine" class="error-message">Name is required</span>
+                </div>
+                <input type="text" placeholder="e.g. Stephen King" name="name" required [(ngModel)]="model.name"
+                    #name="ngModel">
+            </div>
+            <div class="form-group">
+                <div class="label-container">
+                    <label for="email">Email Address</label>
+                    <span [hidden]="email.valid || email.pristine" class="error-message">Email is required</span>
+                </div>
+                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" required
+                    [(ngModel)]="model.email" #email="ngModel">
+            </div>
+            <div class="form-group">
+                <div class="label-container">
+                    <label for="phone">Phone Number</label>
+                    <span [hidden]="phone.valid || phone.pristine" class="error-message">Phone Number is required</span>
+                </div>
+                <input type="text" placeholder="e.g. +1 234 567 890" name="phone" required [(ngModel)]="model.phone"
+                    #phone="ngModel">
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <button type="submit" [disabled]="!personalInfoForm.form.valid">Next Step</button>
+        </div>
+    </form>
+</div>

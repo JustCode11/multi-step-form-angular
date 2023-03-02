@@ -1,0 +1,152 @@
+@use '../../../styles/' as s;
+
+.container {
+
+    form {
+        .inputContainer {
+
+            .plan-options {
+                display: flex;
+                flex-direction: column;
+
+                @include s.breakpoint-up(desktop) {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                .plan-item {
+                    @include s.input-select-field;
+                    height: s.rem(77);
+                    padding: s.rem(20) s.rem(15);
+
+                    &:hover {
+                        border-color: s.$darkPurple;
+                    }
+
+                    &.yearly {
+                        height: s.rem(99);
+
+                        @include s.breakpoint-up(desktop) {
+                            height: s.rem(183);
+                        }
+
+                        img {
+                            align-self: flex-start;
+                        }
+                    }
+
+                    &:not(:last-child) {
+                        margin-bottom: s.rem(12);
+
+                        @include s.breakpoint-up(desktop) {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    @include s.breakpoint-up(desktop) {
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        border-radius: s.rem(10);
+                        height: s.rem(160);
+                        width: s.rem(140);
+                    }
+
+                    img {
+                        margin-right: s.rem(12);
+                    }
+
+                    p {
+                        margin: 0;
+
+                        &:first-child {
+                            color: s.$marineBlue;
+                            font-weight: 500;
+                        }
+
+                        &:nth-child(2) {
+                            font-size: s.rem(14);
+                        }
+
+                        &:last-child {
+                            font-size: s.rem(14);
+                            color: s.$marineBlue;
+                        }
+                    }
+                }
+
+                input[type="radio"] {
+                    clip: rect(0, 0, 0, 0);
+                    clip-path: inset(50%);
+                    height: s.rem(1);
+                    overflow: hidden;
+                    position: absolute;
+                    white-space: nowrap;
+                    width: s.rem(1);
+                }
+
+                input:checked+label {
+                    border: s.rem(1) solid s.$darkPurple;
+                    background-color: s.$alabaster;
+                }
+            }
+
+            .controller-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: s.$alabaster;
+                border-radius: s.rem(5);
+                margin-top: s.rem(25);
+                height: s.rem(47);
+                color: s.$coolGray;
+
+                @include s.breakpoint-up(desktop) {
+                    margin-top: s.rem(32);
+                }
+
+                .selected {
+                    color: s.$marineBlue;
+                    font-weight: 500;
+                }
+
+                .toggler {
+                    position: relative;
+                    width: s.rem(40);
+                    height: s.rem(20);
+                    background-color: s.$marineBlue;
+                    border-radius: 30% 30% 30% 30% / 50% 50% 50% 50%;
+                    margin: 0 s.rem(20);
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        background-color: s.$white;
+                        width: s.rem(12);
+                        height: s.rem(12);
+                        border-radius: 50%;
+                        top: calc(50% - s.rem(6));
+                    }
+
+                    &.left {
+                        &::after {
+                            left: s.rem(5);
+                        }
+                    }
+
+                    &.right {
+                        &::after {
+                            left: s.rem(23);
+                        }
+                    }
+                }
+            }
+        }
+
+        .buttonContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

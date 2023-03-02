@@ -1,0 +1,21 @@
+$pathToFont: "../../assets/fonts/";
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url($pathToFont + "Ubuntu-Regular.ttf");
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url($pathToFont + "Ubuntu-Medium.ttf");
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url($pathToFont + "Ubuntu-Bold.ttf");
+    font-weight: 700;
+}
+
+$primaryFont: "Ubuntu", sans-serif;

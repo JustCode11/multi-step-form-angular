@@ -1,0 +1,53 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" #addOnsForm="ngForm">
+        <div class="inputContainer">
+            <h1>Pick add-ons</h1>
+            <p>Add-ons help enhance your gaming experience.</p>
+            <div class="add-on-selection">
+                <div class="add-on-selection__container">
+                    <input type="checkbox" id="onlineService" name="onlineService" value="onlineService"
+                        [(ngModel)]="addOns[0]">
+                    <label class="add-on-selection__container__item" for="onlineService">
+                        <div class="add-on-selection__container__item__content">
+                            <p>Online service</p>
+                            <p>Access to multiplayer games</p>
+                        </div>
+                        <div class="add-on-selection__container__item__price">
+                            {{period ? yearlyPrices[0] : monthlyPrices[0]}}
+                        </div>
+                    </label>
+                </div>
+                <div class="add-on-selection__container">
+                    <input type="checkbox" id="largerStorage" name="largerStorage" value="largerStorage"
+                        [(ngModel)]="addOns[1]">
+                    <label class="add-on-selection__container__item" for="largerStorage">
+                        <div class="add-on-selection__container__item__content">
+                            <p>Larger storage</p>
+                            <p>Extra 1TB of cloud save</p>
+                        </div>
+                        <div class="add-on-selection__container__item__price">
+                            {{period ? yearlyPrices[1] : monthlyPrices[1]}}
+                        </div>
+                    </label>
+                </div>
+                <div class="add-on-selection__container">
+                    <input type="checkbox" id="customizableProfile" name="customizableProfile"
+                        value="customizableProfile" [(ngModel)]="addOns[2]">
+                    <label class="add-on-selection__container__item" for="customizableProfile">
+                        <div class="add-on-selection__container__item__content">
+                            <p>Customizable profile</p>
+                            <p>Custom theme on your profile</p>
+                        </div>
+                        <div class="add-on-selection__container__item__price">
+                            {{period ? yearlyPrices[2] : monthlyPrices[2]}}
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="buttonContainer">
+            <a (click)="goBack()">Go Back</a>
+            <button type="submit">Next Step</button>
+        </div>
+    </form>
+</div>

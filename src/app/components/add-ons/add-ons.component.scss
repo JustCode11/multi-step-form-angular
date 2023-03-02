@@ -1,0 +1,97 @@
+@use '../../../styles/' as s;
+
+.container {
+
+    form {
+        .inputContainer {
+
+            .add-on-selection {
+                &__container {
+                    position: relative;
+
+                    &:not(:last-child) {
+                        margin-bottom: s.rem(12);
+                    }
+
+                    input[type="checkbox"] {
+                        position: absolute;
+                        left: s.rem(15);
+                        top: calc(50% - s.rem(10));
+                        width: s.rem(20);
+                        height: s.rem(20);
+                        border: s.rem(1) solid s.$lightGray;
+                        border-radius: s.rem(5);
+                        display: grid;
+                        place-content: center;
+
+                        &:checked {
+                            background-color: s.$purplishBlue;
+                            background-image: url('../../../assets/images/icon-checkmark.svg');
+                            background-repeat: no-repeat;
+                            background-position: 50%;
+                        }
+
+                        @include s.breakpoint-up(desktop) {
+                            left: s.rem(23);
+                        }
+                    }
+
+
+                    &__item {
+                        @include s.input-select-field;
+                        justify-content: space-between;
+                        padding: s.rem(20) s.rem(15) s.rem(20) s.rem(50);
+                        height: s.rem(62);
+
+                        &:hover {
+                            border-color: s.$darkPurple;
+                        }
+
+                        @include s.breakpoint-up(desktop) {
+                            height: s.rem(81);
+                            border-radius: s.rem(10);
+                            padding: s.rem(20) s.rem(15) s.rem(20) s.rem(65);
+                        }
+
+                        &__content {
+                            p {
+                                margin: 0;
+
+                                &:first-child {
+                                    font-size: s.rem(14);
+                                    color: s.$marineBlue;
+                                    font-weight: 700;
+                                }
+
+                                &:last-child {
+                                    font-size: s.rem(12);
+
+                                    @include s.breakpoint-up(desktop) {
+                                        font-size: s.rem(14);
+                                    }
+                                }
+                            }
+                        }
+
+                        &__price {
+                            font-size: s.rem(14);
+                            color: s.$purplishBlue;
+                            font-weight: 500;
+                        }
+                    }
+
+                    input:checked+label {
+                        border: s.rem(1) solid s.$darkPurple;
+                        background-color: s.$alabaster;
+                    }
+                }
+            }
+        }
+
+        .buttonContainer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+}

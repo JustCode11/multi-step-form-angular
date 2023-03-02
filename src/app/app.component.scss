@@ -1,0 +1,23 @@
+@use '../styles/' as s;
+
+.container {
+    display: flex;
+    flex-direction: column;
+
+    @include s.breakpoint-up(desktop) {
+        flex-direction: row;
+        min-width: s.rem(940);
+        height: s.rem(600);
+        padding: s.rem(16);
+        background-color: s.$white;
+        border-radius: s.rem(15);
+        -webkit-box-shadow: 0px 7px 10px -5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 7px 10px -5px rgba(0, 0, 0, 0.1);
+    }
+
+    &__content {
+        @include s.breakpoint-up(desktop) {
+            margin: 0 auto;
+        }
+    }
+}

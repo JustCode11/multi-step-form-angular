@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="inputContainer">
+        <h1>Finishing up</h1>
+        <p>Double-check everything looks OK before confirming.</p>
+        <div class="overview">
+            <div class="overview__option">
+                <div class="overview__option__selection">
+                    <p><span>{{model.plan}}</span> ({{period ? "Yearly" : "Monthly"}})</p>
+                    <button (click)="onChangePeriod();">Change</button>
+                </div>
+                <div class="overview__option__price" [ngSwitch]="model.plan">
+                    <span *ngSwitchCase="'arcade'">{{period ? '+$' + yearlyPlanPrices[0] + '/yr' :
+                        '+$' + monthlyPlanPrices[0] + '/mo'}}</span>
+                    <span *ngSwitchCase="'advanced'">{{period ? '+$' + yearlyPlanPrices[1] + '/yr' : '+$' +
+                        monthlyPlanPrices[1]
+                        + '/mo'}}</span>
+                    <span *ngSwitchCase="'pro'">{{period ? '+$' + yearlyPlanPrices[2] + '/yr' : '+$' +
+                        monthlyPlanPrices[2] +
+                        '/mo'}}</span>
+                </div>
+            </div>
+            <hr />
+            <ul class="overview__extras">
+                <li *ngIf="model.addOns[0]">
+                    <div>Online Service</div>
+                    <div>{{period ? "+$10/yr" : "+$1/mo"}}</div>
+                </li>
+                <li *ngIf="model.addOns[1]">
+                    <div>Larger storage</div>
+                    <div>{{period ? "+$20/yr" : "+$2/mo"}}</div>
+                </li>
+                <li *ngIf="model.addOns[2]">
+                    <div>Customizable Profile</div>
+                    <div>{{period ? "+$20/yr" : "+$2/mo"}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="totalPrice">
+            <div>Total (per {{period ? 'year': 'month'}})</div>
+            <div>+${{totalPrice}}/{{period ? 'yr': 'mo'}}</div>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <a (click)="goBack()">Go Back</a>
+        <button type="button" (click)="onConfirm()">Confirm</button>
+    </div>
+</div>

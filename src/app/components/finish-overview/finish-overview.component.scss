@@ -1,0 +1,135 @@
+@use '../../../styles/' as s;
+
+.container {
+
+    @include s.breakpoint-up(desktop) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inputContainer {
+
+        .overview {
+            padding: s.rem(15);
+            background-color: s.$magnolia;
+            border-radius: s.rem(5);
+            font-size: s.rem(14);
+            margin-bottom: s.rem(15);
+
+            @include s.breakpoint-up(desktop) {
+                padding: s.rem(23);
+            }
+
+            &__option {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                &__selection {
+                    p {
+                        color: s.$marineBlue;
+                        font-weight: 700;
+                        margin: 0;
+                        text-transform: capitalize;
+                    }
+
+                    button {
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        color: s.$coolGray;
+                        padding: 0;
+                        text-decoration: underline;
+                        text-decoration-thickness: s.rem(2);
+                        font-weight: 500;
+                        transition: color 150ms ease-in-out;
+
+                        &:hover {
+                            color: s.$purplishBlue;
+                        }
+                    }
+                }
+
+                &__price {
+                    color: s.$marineBlue;
+                    font-weight: 700;
+                }
+            }
+
+            hr {
+                border: none;
+                height: s.rem(1);
+                background-color: s.$lightGray;
+                margin: s.rem(13) 0;
+
+                @include s.breakpoint-up(desktop) {
+                    margin: s.rem(20) 0;
+                }
+            }
+
+            &__extras {
+                padding: 0;
+                list-style-type: none;
+                margin: 0;
+
+                li {
+                    display: flex;
+                    justify-content: space-between;
+                    font-weight: 500;
+
+                    &:not(:last-child) {
+                        margin-bottom: s.rem(5);
+
+                        @include s.breakpoint-up(desktop) {
+                            margin-bottom: s.rem(10);
+                        }
+                    }
+
+                    div {
+                        &:first-child {
+                            color: s.$coolGray;
+                        }
+
+                        &:last-child {
+                            color: s.$marineBlue;
+                        }
+                    }
+                }
+            }
+        }
+
+        .totalPrice {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: s.rem(15);
+            font-size: s.rem(14);
+
+            @include s.breakpoint-up(desktop) {
+                padding: s.rem(15) s.rem(23);
+            }
+
+            div {
+                &:first-child {
+                    color: s.$coolGray;
+                }
+
+                &:last-child {
+                    font-size: s.rem(16);
+                    color: s.$purplishBlue;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
+    .buttonContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            background-color: s.$purplishBlue;
+        }
+    }
+}

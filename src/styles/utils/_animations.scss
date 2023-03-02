@@ -1,0 +1,37 @@
+@use './functions' as f;
+
+@keyframes toggle-right {
+    from {
+        left: f.rem(5);
+    }
+
+    to {
+        left: f.rem(23);
+    }
+}
+
+.togglePositionRight {
+    &::after {
+        animation-name: toggle-right;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+    }
+}
+
+@keyframes toggle-left {
+    from {
+        left: f.rem(23);
+    }
+
+    to {
+        left: f.rem(5);
+    }
+}
+
+.togglePositionLeft {
+    &::after {
+        animation-name: toggle-left;
+        animation-duration: 300ms;
+        animation-fill-mode: forwards;
+    }
+}
