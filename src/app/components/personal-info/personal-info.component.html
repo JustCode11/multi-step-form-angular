@@ -1,5 +1,5 @@
 <div class="container">
-    <form (ngSubmit)="onSubmit()" #personalInfoForm="ngForm">
+    <form (ngSubmit)="onSubmit(email)" #personalInfoForm="ngForm">
         <div class="inputContainer">
             <h1>Personal info</h1>
             <p>Please provide your name, email address, and phone number.</p>
@@ -14,22 +14,31 @@
             <div class="form-group">
                 <div class="label-container">
                     <label for="email">Email Address</label>
-                    <span [hidden]="email.valid || email.pristine" class="error-message">Email is required</span>
+                    <span [hidden]="!email.control.errors?.['required'] || email.pristine" class="error-message">Email
+                        is
+                        required</span>
+                    <span [hidden]="!email.control.errors?.['email'] || email.pristine || email.untouched"
+                        class="error-message">This is
+                        not a valid email</span>
                 </div>
-                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" required
+                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" required email
                     [(ngModel)]="model.email" #email="ngModel">
             </div>
             <div class="form-group">
                 <div class="label-container">
                     <label for="phone">Phone Number</label>
-                    <span [hidden]="phone.valid || phone.pristine" class="error-message">Phone Number is required</span>
+                    <span [hidden]="!phone.control.errors?.['required'] || phone.pristine" class="error-message">Phone
+                        Number is required</span>
+                    <span [hidden]="!phone.control.errors?.['minlength'] || phone.pristine || phone.untouched"
+                        class="error-message">Number
+                        must be between 8 and 15 characters</span>
                 </div>
-                <input type="text" placeholder="e.g. +1 234 567 890" name="phone" required [(ngModel)]="model.phone"
-                    #phone="ngModel">
+                <input type="tel" placeholder="e.g. +1 234 567 890" name="phone" required minlength="8" maxlength="15"
+                    [(ngModel)]="model.phone" #phone="ngModel">
             </div>
         </div>
         <div class="buttonContainer">
-            <button type="submit" [disabled]="!personalInfoForm.form.valid">Next Step</button>
+            <button type="submit">Next Step</button>
         </div>
     </form>
 </div>

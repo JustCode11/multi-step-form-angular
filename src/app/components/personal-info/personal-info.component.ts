@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
+import { NgForm, NgModel } from '@angular/forms';
 import { PersonalInfo } from 'src/app/models/personal-info';
 
 @Component({
@@ -21,7 +21,8 @@ export class PersonalInfoComponent {
     this.modelEvent.emit(value);
   }
 
-  onSubmit(): void {
+  onSubmit(email: NgModel): void {
+    console.log(email);
     this.changeStep(2);
     this.changeModel(this.model);
   }
