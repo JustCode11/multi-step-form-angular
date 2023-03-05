@@ -12,8 +12,11 @@
                     <span
                         *ngIf="!personalForm.get('name').valid && personalForm.get('name').errors?.['containNumbers'] && personalForm.get('name').touched"
                         class="error-message">Name contains numbers</span>
+                    <span
+                        *ngIf="!personalForm.get('name').valid && personalForm.get('name').errors?.['maxlength'] && !personalForm.get('name').errors?.['containNumbers'] && personalForm.get('name').touched"
+                        class="error-message">Name should not exceed 35 characters</span>
                 </div>
-                <input type="text" placeholder="e.g. Stephen King" name="name" formControlName="name">
+                <input type="text" id="name" placeholder="e.g. Stephen King" name="name" formControlName="name">
             </div>
             <div class="form-group">
                 <div class="label-container">
@@ -28,7 +31,8 @@
                         class="error-message">This is
                         not a valid email</span>
                 </div>
-                <input type="email" placeholder="e.g. stephenking@lorem.com" name="email" formControlName="email">
+                <input type="email" id="email" placeholder="e.g. stephenking@lorem.com" name="email"
+                    formControlName="email">
             </div>
             <div class="form-group">
                 <div class="label-container">
@@ -48,7 +52,7 @@
                         Number
                         should only contain numbers</span>
                 </div>
-                <input type="tel" placeholder="e.g. +1 234 567 890" name="phone" formControlName="phone">
+                <input type="tel" id="phone" placeholder="e.g. +1 234 567 890" name="phone" formControlName="phone">
             </div>
         </div>
         <div class="buttonContainer">

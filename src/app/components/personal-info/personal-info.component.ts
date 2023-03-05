@@ -16,7 +16,7 @@ export class PersonalInfoComponent implements OnInit {
 
   ngOnInit() {
     this.personalForm = new FormGroup({
-      name: new FormControl(null, [Validators.required, this.containNumbers]),
+      name: new FormControl(null, [Validators.required, this.containNumbers, Validators.maxLength(35)]),
       email: new FormControl(null, [Validators.required, Validators.email]),
       phone: new FormControl(null, [Validators.required, Validators.maxLength(15), Validators.minLength(8), this.containCharacters])
     });
@@ -47,6 +47,7 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   onSubmit(): void {
+    console.log(this.personalForm.get('name'));
     this.model.name = this.personalForm.get('name').value;
     this.model.email = this.personalForm.get('email').value;
     this.model.phone = this.personalForm.get('phone').value;

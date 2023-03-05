@@ -1,4 +1,4 @@
-<div class="container">
+<main class="container">
   <app-steps [step]="step"></app-steps>
   <div [ngSwitch]="step" class="container__content">
     <app-personal-info [step]="step" [model]="model" (modelEvent)="onChangeModel($event)"
@@ -11,4 +11,4 @@
       (stepEvent)="onChangeStep($event)" *ngSwitchCase="4"></app-finish-overview>
     <app-confirmation *ngSwitchCase="5"></app-confirmation>
   </div>
-</div>
+</main>

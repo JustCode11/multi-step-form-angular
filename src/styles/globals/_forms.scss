@@ -1,6 +1,6 @@
 @use '../utils/' as u;
 @use './colors' as color;
 
-input.ng-dirty.ng-invalid.ng-touched {
+input.ng-invalid.ng-touched {
     border: u.rem(1) solid color.$strawberryRed !important;
 }
